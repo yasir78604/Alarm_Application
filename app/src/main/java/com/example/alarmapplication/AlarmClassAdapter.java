@@ -31,7 +31,7 @@ public class AlarmClassAdapter  extends RecyclerView.Adapter<AlarmClassAdapter.V
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.messageTxtView.setText(alarms.get(position).getMessage());
-        String time = alarms.get(position).getHours() + " : " + alarms.get(position).getMessage();
+        String time = alarms.get(position).getHours() + " : " + alarms.get(position).getMinute();
         holder.timeTxtView.setText(time);
     }
 

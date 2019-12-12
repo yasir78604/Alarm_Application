@@ -25,16 +25,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        btnSetAlarm = (Button)findViewById(R.id.btnSetAlarm);
+        recyclerView = (RecyclerView) findViewById(R.id.recView);
         if (allalarms == null){
             allalarms = new ArrayList<>();
         }
         adapter = new AlarmClassAdapter();
+        adapter.setAlarms(allalarms);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter.setAlarms(allalarms);
 
-        btnSetAlarm = (Button)findViewById(R.id.btnSetAlarm);
-        recyclerView = (RecyclerView) findViewById(R.id.recView);
+
+
         btnSetAlarm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         try {
-            Intent intent=getIntent();
+            Intent intent = getIntent();
             Bundle bundle = intent.getBundleExtra(getString(R.string.bundle));
             if (bundle != null){
                 int hours =  bundle.getInt(getString(R.string.hours),-1);
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         alarmIntent.putExtra(AlarmClock.EXTRA_HOUR,hours);
                         alarmIntent.putExtra(AlarmClock.EXTRA_MINUTES,minute);
                         alarmIntent.putExtra(AlarmClock.EXTRA_MINUTES,"Message from Other Side");
-                        Alarm alarm = new Alarm(hours,minute,"Message from Other Side");
+                        Alarm alarm = new Alarm(hours, minute,"Message from Other Side");
                         allalarms.add(alarm);
                         adapter.setAlarms(allalarms);
                         startActivity(alarmIntent);
