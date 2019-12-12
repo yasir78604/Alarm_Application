@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetAlarmTimeActivity">
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="Hour"
+        android:layout_marginLeft="75dp"
+        android:id="@+id/edtTextHour"
+        android:layout_marginTop="100dp"/>
+
+    <EditText
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="Minute"
+        android:id="@+id/edtTextMinute"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_toRightOf="@+id/edtTextHour"/>
+
+    <Button
+        android:id="@+id/btnSetAlarmTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Set Alarm Time" />
+
+</RelativeLayout>
